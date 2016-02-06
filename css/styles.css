@@ -1,0 +1,57 @@
+div {
+  border-radius: 2em;
+  padding: 1em;
+}
+
+.voice-name {
+  color: white;
+  background: rgb(110, 140, 245);
+}
+
+.voice {
+  margin-left: 0.2em;
+  background: rgb(100, 195, 100);
+}
+
+.actor {
+  margin-bottom: 0.1em;
+}
+
+.page {
+  margin: 0.4em;
+  margin-bottom: 4em;
+  border: 0.4em solid black;
+}
+
+.page-number {
+  margin-right: 2em;
+  font-size: 2em;
+  text-align: right;
+  padding: 0em;
+}
+
+.page-number:before {
+  font-family: "FontAwesome";
+  content: "\f0f6";
+  float: right;
+  margin-right: 2em;
+}
+
+.scene {
+  margin-left: 10em;
+  background: rgba(100, 100, 100, 0.3);
+  text-align: right;
+}
+
+.scene:before {
+  font-family: "FontAwesome";
+  content: "\f03d";
+  float: left;
+}
+
+.jumbotron {
+  height: 200px;
+  text-align: center;
+  vertical-align: center;
+  font-size: 3em;
+}
