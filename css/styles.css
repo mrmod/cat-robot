@@ -55,3 +55,17 @@ div {
   vertical-align: center;
   font-size: 3em;
 }
+
+.book-spine {
+  border-radius: 0.2em;
+  border-top: 0.3em solid rgba(90, 173, 90, 0.75);
+  border-bottom: 0.2em solid rgba(90, 123, 90, 0.75);
+  color: rgb(245, 245, 245);
+  background: rgb(90, 150, 90);
+  font-smooth: always;
+  font-size: 1.1em;
+  padding-left: 4em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  margin-top: 0;
+}
