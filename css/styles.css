@@ -1,0 +1,28 @@
+.voice-name {
+  background: rgb(220, 240, 220);
+}
+
+.voice {
+  background: rgb(210, 220, 210);
+}
+
+.actor {
+  margin-bottom: 0.1em;
+}
+
+.page {
+  margin-top: 0.4em;
+  border-top: 0.4em solid black;
+}
+
+.scene {
+  margin-left: 1em;
+  background: rgba(100, 100, 100, 0.3);
+  text-align: right;
+}
+
+.scene:before {
+  font-family: "FontAwesome";
+  content: "\f03d";
+  float: left;
+}
