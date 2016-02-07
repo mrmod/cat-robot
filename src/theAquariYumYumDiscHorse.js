@@ -1,120 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-require('purecss/build/pure-min.css');
-require('purecss/build/grids-responsive-min.css');
-require('purecss/build/buttons-min.css');
-require("font-awesome/css/font-awesome.css");
-
-// Custom styles
-require('../css/styles.css');
-
-var NoStory = React.createClass({
-  render: function() {
-    return(<div className="pure-u-1 no-story">No story for {this.props.for} yet</div>);
-  }
-});
-
-var Actor = React.createClass({
-  render: function() {
-    var actorClass = "pure-u-1"+this.props.actors+" actor";
-    return(<div className={actorClass}>
-      <div className="pure-u-2-24 voice-name voice-odd">{this.props.name}</div>
-      <div className="pure-u-16-24 voice voice-odd">{this.props.says}</div>
-    </div>);
-  }
-});
-
-var SceneDirection = React.createClass({
-  render: function() {
-    return(<div className="pure-u-12-24 scene">{this.props.direction}</div>);
-  }
-});
-
-var Page = React.createClass({
-  render: function() {
-    return(<div className="pure-u-1 page">
-      <div className="pure-u-1 page-number">{this.props.number}</div>
-      {this.props.page.map(function(actor, id){
-        var actorName = Object.keys(actor)[0];
-        if(actorName === "scene") {
-          return(<SceneDirection key={id} direction={actor[actorName]} />);
-        } else {
-          return(<Actor key={id} actors={this.props.page[id].length} name={actorName} says={actor[actorName]} />);
-        }
-      }.bind(this))}
-    </div>);
-  }
-});
-
-var Book = React.createClass({
-  render: function() {
-    return(<div className="pure-g">
-      <div className="pure-u-1 jumbotron">{this.props.title}</div>
-      {this.props.pages.map(function(page, pageNumber){
-      return(<Page key={pageNumber} number={pageNumber} page={page} />);
-      }.bind(this))}
-    </div>);
-  }
-});
-
-var BookSpine = React.createClass({
-  openBook: function() {
-    this.props.openBook({title: this.props.title, pages: this.props.pages});
-  },
-  render: function() {
-    return(<div className="pure-2-24 book-spine" onClick={this.openBook}>{this.props.title}</div>)
-  }
-});
-
-var Library = React.createClass({
-  render: function() {
-    return(<div>{this.props.books.map(function(book, id){
-      return(<BookSpine key={id} title={book.title} openBook={this.props.openBook} pages={book.pages} />);
-    }.bind(this))}</div>);
-  }
-});
-
-var Reader = React.createClass({
-  render: function() {
-    var emptyBook = [];
-    if(this.props.book) {
-      return(<Book title={this.props.book.title} pages={this.props.book.pages} />);
-    } else {
-      return(<Book title="No Book Open" pages={emptyBook} />);
-    }
-  }
-});
-
-var ReadingRoom = React.createClass({
-  getInitialState: function(){
-    return({currentBook: null});
-  },
-  openBook: function(book) {
-    this.setState({currentBook: book});
-  },
-  render: function() {
-    return(<div className="pure-u-g reading-room">
-      <Library books={this.props.books} openBook={this.openBook} />
-      <Reader book={this.state.currentBook} />
-    </div>);
-  }
-});
-
 // The AquariYumYum Disc Horse
 var TheAquariYumYumDiscHorse = {
   title: "The AquariYumYum Disc Horse",
   pages: [
     [
       {cat: "What do you think of Jerry's aquarium stones?"},
-      {robot: "The other day, I was talking to Weezops and bot said 'There is funky aquarium store near planet Kokorall'."}
+      {robot: "The other day, I was talking to Weezops and bot said 'There is a funky aquarium store near planet Kokorall'."}
     ],
     [
+      {scene: "Jerry the fish is present in his aquarium."},
       {cat: "We should jet over and check it out!"},
       {robot: "Totally"},
       {jerry: "Glub Bloop!"}
     ],
     [
+      {scene: "KitSpace (the ship...) is heading toward Kokorall now."},
       {robot: "Did you check the water filter?"},
       {cat: "Well... uh, not really. I just sort of took a look at the water and it was clean."},
       {robot: "The aquaponic garden is sensitive to changes. Sometimes a regular eye can't see very small things in the water."},
@@ -142,7 +41,7 @@ var TheAquariYumYumDiscHorse = {
     ],
     [
       {owner: "Yep, always busy at this store, so the other stores work together to help out."},
-      {robot: "When our bodies come into your store, our weight pushes down on the water"},
+      {robot: "When our bodies come into your store, our weight pushes down on the water."},
       {owner: "That's right, and all of the stores push up on the air a little bit to let you in."},
       {cat: "This is soo cool."},
       {robot: "Uh, displacement and boyancy?"},
@@ -150,7 +49,7 @@ var TheAquariYumYumDiscHorse = {
     ],
     [
       {scene: "A set of green sparkle rocks are in front of them"},
-      {robot: "*camera is zooming in and out*. Yeh. Sparkle."},
+      {robot: "*mesmerized*. Yeh. Sparkle."},
       {cat: "Right?! How much are these sparkly-magic-things?"},
       {owner: "The elumenhairy electric-hairy-sparkle-stones? A difficult-discourse."},
       {cat: "Disc Horse?"},
@@ -203,14 +102,3 @@ var TheAquariYumYumDiscHorse = {
     ]
   ]
 };
-
-var bookShelf = [
-  TheAquariYumYumDiscHorse,
-  {title: "Troll Butts", pages: []},
-];
-
-
-ReactDOM.render(
-  <ReadingRoom books={bookShelf} />,
-  document.getElementById("book")
-);
