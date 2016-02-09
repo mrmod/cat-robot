@@ -1,5 +1,6 @@
+
 // The AquariYumYum Disc Horse
-var TheAquariYumYumDiscHorse = {
+module.exports = {
   title: "The AquariYumYum Disc Horse",
   pages: [
     [
@@ -28,7 +29,7 @@ var TheAquariYumYumDiscHorse = {
     ],
     [
       {robot: "Dude! Did you see that? Was that an Distillavator V9?"},
-      {cat: "Best water distiller around. It can convert dirty water to clean, like saltwater, or bacteria-filled water, or pee-fi--"},
+      {cat: "Best water distiller around. It can convert dirty water to clean water; like saltwater, or bacteria-filled water, or pee-fi--"},
       {robot: "There's the store"}
     ],
     [
@@ -74,14 +75,14 @@ var TheAquariYumYumDiscHorse = {
       {cat: "I remember the owner saying all the stores work together. Let's head to another store."}
     ],
     [
-      {scene: "Robot, Cat and Orb head to one of the other aquariums"},
+      {scene: "Robot, Cat and Orb head to one of the other aquariums and enter"},
       {orb: "I've gotten the last of this stone. There is none for you"},
       {scene: "Orb isn't emoting much"},
       {robot: "Beautiful!"},
       {cat: "Good find Orb!"}
     ],
     [
-      {scene: "Orb look surprised"},
+      {scene: "Orb looks surprised"},
       {orb: "Yeah I saw them and liked them"},
       {cat: "What did you like about them?"},
       {orb: "I. I felt good seeing them. My inner orb swelled with good feelings."},
@@ -101,4 +102,4 @@ var TheAquariYumYumDiscHorse = {
       {scene: "Jerry's amazeballs tank"}
     ]
   ]
-};
+}; // exports

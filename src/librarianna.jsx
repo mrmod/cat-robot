@@ -7,7 +7,7 @@ require('purecss/build/buttons-min.css');
 require("font-awesome/css/font-awesome.css");
 
 // Books
-require("./theAquariYumYumDiscHorse");
+var TheAquariYumYumDiscHorse = require("./theAquariYumYumDiscHorse");
 
 // Custom styles... yo yo yo!
 require('../css/styles.css');
@@ -110,10 +110,9 @@ var ReadingRoom = React.createClass({
   }
 });
 
-
+console.log("Aqua: ", TheAquariYumYumDiscHorse);
 var bookShelf = [
   TheAquariYumYumDiscHorse,
-  {title: "Troll Butts", pages: []},
 ];
 
 
