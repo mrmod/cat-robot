@@ -63,7 +63,7 @@ module.exports = {
     ],
     [
       {scene: "Robot and Cat are walking out of the store toward their ship"},
-      {orb: "Can you give me your elemnhairy stones?"},
+      {orb: "Can you give me your elumenhairy stones?"},
       {cat: "Oh hi! We just got these from AquariYumYum. It's that building--"},
       {orb: "They have no more stones. Can you give me yours?"},
       {cat: "Uh, would you like to help with my difficult discourse problem?"}
